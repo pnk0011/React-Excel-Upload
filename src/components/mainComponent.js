@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./mainComponent.css";
 import "react-sortable-tree/style.css";
 import XLSX from "xlsx";
@@ -13,8 +13,9 @@ const MainComponent = () => {
 
   const handleUpload = (event) => {
     const file = event.target.files[0];
-    var name = file.name;
     const reader = new FileReader();
+    let chartData = Chart;
+    console.log("chartData", chartData);
     reader.onload = (evt) => {
       // evt = on_file_select event
       /* Parse data */
@@ -36,7 +37,6 @@ const MainComponent = () => {
 
   const convertToJson = (csv) => {
     var lines = csv.split("\n");
-    var result = [];
     var headers = lines[0].split(",");
     setHeaderData([...headers]);
   };
