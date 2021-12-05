@@ -52,7 +52,7 @@ const MainComponent = () => {
   const onDropped = (e) => {
     let columnIndex = e.dataTransfer.getData("columnIndex");
     let isPresent = false;
-    tableData.map((item) => {
+    tableData.forEach((item) => {
       if (item === columnIndex) {
         isPresent = true;
       }
